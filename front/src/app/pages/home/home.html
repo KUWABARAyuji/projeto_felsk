@@ -1,0 +1,67 @@
+<section class="hero">
+  <div class="hero-text">
+    <span class="tag">Reformas e Reparos</span>
+
+    <h1>Precisando de Marido de Aluguel?</h1>
+
+    <p>
+      Solicite serviços de instalação, manutenção e pequenos reparos
+      com profissionais cadastrados no seu sistema.
+    </p>
+
+    <div class="actions">
+      <a routerLink="/orcamento" class="btn primary">
+        Pedir orçamento
+      </a>
+
+      <a routerLink="/trabalhadores" class="btn secondary">
+        Ver profissionais
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <h2>Serviços disponíveis</h2>
+
+    <div class="service-list">
+      @for (servico of servicos; track servico) {
+        <div>
+          <span>✓</span>
+          {{ servico }}
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <span>Como funciona</span>
+    <h2>Fluxo do sistema</h2>
+    <p>
+      O front foi pensado para acompanhar a lógica que já existe no seu
+      código C++.
+    </p>
+  </div>
+
+  <div class="steps">
+    @for (passo of passos; track passo.numero) {
+      <article>
+        <span>{{ passo.numero }}</span>
+        <h3>{{ passo.titulo }}</h3>
+        <p>{{ passo.texto }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Quando o backend estiver pronto, o front já estará preparado.</h2>
+  <p>
+    As telas vão consumir as rotas HTTP do C++ usando HttpClient.
+  </p>
+
+  <a routerLink="/orcamento" class="btn primary">
+    Criar solicitação
+  </a>
+</section>

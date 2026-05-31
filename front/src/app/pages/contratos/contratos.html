@@ -1,0 +1,78 @@
+<section class="page">
+  <div class="header">
+    <span>Gestão</span>
+    <h1>Contratos</h1>
+    <p>
+      Aqui você confirma, conclui e cancela contratos usando o backend C++.
+    </p>
+  </div>
+
+  @if (erro()) {
+    <div class="message error">
+      {{ erro() }}
+    </div>
+  }
+
+  @if (sucesso()) {
+    <div class="message success">
+      {{ sucesso() }}
+    </div>
+  }
+
+  @if (carregando()) {
+    <div class="message info">
+      Carregando contratos...
+    </div>
+  }
+
+  <div class="list">
+    @for (contrato of contratos(); track contrato.id) {
+      <article class="contract">
+        <div class="contract-header">
+          <div>
+            <h2>#{{ contrato.id }} - {{ contrato.habilidade }}</h2>
+            <p>
+              {{ contrato.clienteNome }}
+              →
+              {{ contrato.trabalhadorNome }}
+            </p>
+          </div>
+
+          <span class="status" [class]="contrato.status.toLowerCase()">
+            {{ contrato.status }}
+          </span>
+        </div>
+
+        <div class="info-grid">
+          <span>📅 {{ contrato.data }}</span>
+          <span>⏱️ {{ contrato.horas }}h</span>
+          <span>💰 R$ {{ contrato.valorTotal }}</span>
+        </div>
+
+        <p class="description">
+          {{ contrato.descricao }}
+        </p>
+
+        <div class="actions">
+          <button type="button" (click)="confirmar(contrato.id)">
+            Confirmar
+          </button>
+
+          <button type="button" (click)="concluir(contrato.id)">
+            Concluir
+          </button>
+
+          <button
+            type="button"
+            class="danger"
+            (click)="cancelar(contrato.id)"
+          >
+            Cancelar
+          </button>
+        </div>
+      </article>
+    } @empty {
+      <p>Nenhum contrato carregado.</p>
+    }
+  </div>
+</section>

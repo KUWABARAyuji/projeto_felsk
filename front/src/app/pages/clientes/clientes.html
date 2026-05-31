@@ -1,0 +1,75 @@
+<section class="page">
+  <div class="header">
+    <span>Clientes</span>
+    <h1>Cadastro de clientes</h1>
+    <p>
+      Os dados desta tela vêm do backend C++.
+    </p>
+  </div>
+
+  @if (erro()) {
+    <div class="message error">
+      {{ erro() }}
+    </div>
+  }
+
+  @if (sucesso()) {
+    <div class="message success">
+      {{ sucesso() }}
+    </div>
+  }
+
+  <form class="form" (ngSubmit)="cadastrarCliente()">
+    <input
+      type="text"
+      placeholder="Nome"
+      [ngModel]="nome()"
+      (ngModelChange)="nome.set($event)"
+      name="nome"
+    />
+
+    <input
+      type="text"
+      placeholder="Telefone"
+      [ngModel]="telefone()"
+      (ngModelChange)="telefone.set($event)"
+      name="telefone"
+    />
+
+    <input
+      type="text"
+      placeholder="CPF"
+      [ngModel]="cpf()"
+      (ngModelChange)="cpf.set($event)"
+      name="cpf"
+    />
+
+    <input
+      type="text"
+      placeholder="Endereço"
+      [ngModel]="endereco()"
+      (ngModelChange)="endereco.set($event)"
+      name="endereco"
+    />
+
+    <button type="submit">
+      Cadastrar
+    </button>
+  </form>
+
+  @if (carregando()) {
+    <p class="loading">Carregando clientes...</p>
+  }
+
+  <div class="grid">
+    @for (cliente of clientes(); track cliente.id) {
+      <article>
+        <h2>#{{ cliente.id }} - {{ cliente.nome }}</h2>
+        <p>{{ cliente.telefone }}</p>
+        <p>{{ cliente.endereco }}</p>
+      </article>
+    } @empty {
+      <p>Nenhum cliente carregado.</p>
+    }
+  </div>
+</section>

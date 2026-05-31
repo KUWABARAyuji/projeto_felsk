@@ -1,0 +1,32 @@
+<header class="navbar">
+  <a routerLink="/" class="logo">
+    <span>🔧</span>
+    Marido de Aluguel
+  </a>
+
+  <nav>
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Início
+    </a>
+
+    <a routerLink="/orcamento" routerLinkActive="active">
+      Orçamento
+    </a>
+
+    <a routerLink="/clientes" routerLinkActive="active">
+      Clientes
+    </a>
+
+    <a routerLink="/trabalhadores" routerLinkActive="active">
+      Profissionais
+    </a>
+
+    <a routerLink="/contratos" routerLinkActive="active">
+      Contratos
+    </a>
+  </nav>
+</header>

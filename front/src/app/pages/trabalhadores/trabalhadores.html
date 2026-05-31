@@ -1,0 +1,55 @@
+<section class="page">
+  <div class="header">
+    <span>Profissionais</span>
+    <h1>Trabalhadores cadastrados</h1>
+    <p>
+      Lista carregada diretamente do backend C++.
+    </p>
+  </div>
+
+  @if (carregando()) {
+    <div class="message info">
+      Carregando trabalhadores...
+    </div>
+  }
+
+  @if (erro()) {
+    <div class="message error">
+      {{ erro() }}
+    </div>
+  }
+
+  <div class="grid">
+    @for (trabalhador of trabalhadores(); track trabalhador.id) {
+      <article class="card">
+        <div class="top">
+          <div class="avatar">
+            {{ trabalhador.nome.charAt(0) }}
+          </div>
+
+          <div>
+            <h2>#{{ trabalhador.id }} - {{ trabalhador.nome }}</h2>
+            <p>{{ trabalhador.telefone }}</p>
+          </div>
+        </div>
+
+        <div class="rating">
+          ⭐ {{ trabalhador.avaliacaoMedia }} / 5
+          <span>({{ trabalhador.totalAvaliacoes }} avaliações)</span>
+        </div>
+
+        <div class="skills">
+          @for (habilidade of trabalhador.habilidades; track habilidade.nome) {
+            <div class="skill">
+              <strong>{{ habilidade.nome }}</strong>
+              <span>{{ habilidade.descricao }}</span>
+              <b>R$ {{ habilidade.valorHora }}/h</b>
+            </div>
+          }
+        </div>
+      </article>
+    } @empty {
+      <p>Nenhum trabalhador carregado.</p>
+    }
+  </div>
+</section>

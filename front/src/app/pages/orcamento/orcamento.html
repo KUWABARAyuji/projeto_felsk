@@ -1,0 +1,112 @@
+<section class="page">
+  <div class="header">
+    <span>Orçamento</span>
+    <h1>Criar solicitação de serviço</h1>
+    <p>
+      Esta tela envia os dados para o backend C++ criar um contrato.
+    </p>
+  </div>
+
+  @if (erro()) {
+    <div class="message error">
+      {{ erro() }}
+    </div>
+  }
+
+  @if (sucesso()) {
+    <div class="message success">
+      {{ sucesso() }}
+    </div>
+  }
+
+  @if (carregando()) {
+    <div class="message info">
+      Carregando profissionais do backend...
+    </div>
+  }
+
+  <form class="form" (ngSubmit)="criarContrato()">
+    <label>
+      ID do cliente
+      <input
+        type="number"
+        placeholder="Ex: 1"
+        [ngModel]="idCliente()"
+        (ngModelChange)="idCliente.set(+$event)"
+        name="idCliente"
+      />
+    </label>
+
+    <label>
+      Profissional
+      <select
+        [ngModel]="idTrabalhador()"
+        (ngModelChange)="idTrabalhador.set(+$event); habilidade.set('')"
+        name="idTrabalhador"
+      >
+        <option [ngValue]="null">Selecione</option>
+
+        @for (trabalhador of trabalhadores(); track trabalhador.id) {
+          <option [value]="trabalhador.id">
+            #{{ trabalhador.id }} - {{ trabalhador.nome }}
+          </option>
+        }
+      </select>
+    </label>
+
+    <label>
+      Habilidade
+      <select
+        [ngModel]="habilidade()"
+        (ngModelChange)="habilidade.set($event)"
+        name="habilidade"
+      >
+        <option value="">Selecione</option>
+
+        @if (trabalhadorSelecionado()) {
+          @for (hab of trabalhadorSelecionado()!.habilidades; track hab.nome) {
+            <option [value]="hab.nome">
+              {{ hab.nome }} - R$ {{ hab.valorHora }}/h
+            </option>
+          }
+        }
+      </select>
+    </label>
+
+    <label>
+      Data do serviço
+      <input
+        type="date"
+        [ngModel]="data()"
+        (ngModelChange)="data.set($event)"
+        name="data"
+      />
+    </label>
+
+    <label>
+      Horas estimadas
+      <input
+        type="number"
+        min="1"
+        [ngModel]="horas()"
+        (ngModelChange)="horas.set(+$event)"
+        name="horas"
+      />
+    </label>
+
+    <label class="full">
+      Descrição do serviço
+      <textarea
+        rows="5"
+        placeholder="Ex: Preciso trocar uma tomada e instalar uma prateleira."
+        [ngModel]="descricao()"
+        (ngModelChange)="descricao.set($event)"
+        name="descricao"
+      ></textarea>
+    </label>
+
+    <button type="submit">
+      Enviar para o backend
+    </button>
+  </form>
+</section>
