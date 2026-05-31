@@ -1,0 +1,11 @@
+Abra 2 terminais.
+
+Terminal 1:
+cd back
+rodar_backend.bat
+
+Terminal 2:
+cd front
+rodar_front.bat
+
+Depois acesse http://localhost:4200
