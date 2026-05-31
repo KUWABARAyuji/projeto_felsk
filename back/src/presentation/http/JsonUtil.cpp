@@ -79,7 +79,7 @@ std::string objectError(const std::string& message) {
 }
 
 std::string objectHealth() {
-    return "{\"status\":\"online\",\"servico\":\"Marido de Aluguel API C++\",\"banco\":\"TXT\"}";
+    return "{\"status\":\"online\",\"servico\":\"Marido de Aluguel\",\"armazenamento\":\"TXT\"}";
 }
 
 std::optional<std::string> getString(const std::string& body, const std::string& key) {

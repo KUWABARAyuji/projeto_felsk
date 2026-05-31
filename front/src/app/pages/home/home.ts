@@ -26,12 +26,12 @@ export class Home {
     {
       numero: '02',
       titulo: 'Profissional é escolhido',
-      texto: 'O sistema usa os trabalhadores cadastrados no backend C++.'
+      texto: 'A solicitação é associada a um profissional cadastrado.'
     },
     {
       numero: '03',
       titulo: 'Contrato é criado',
-      texto: 'O contrato começa como PENDENTE, igual no seu backend.'
+      texto: 'O contrato é registrado com status pendente.'
     },
     {
       numero: '04',

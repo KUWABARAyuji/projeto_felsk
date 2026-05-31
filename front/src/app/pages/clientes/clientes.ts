@@ -37,7 +37,7 @@ export class Clientes implements OnInit {
         this.carregando.set(false);
       },
       error: () => {
-        this.erro.set('Backend C++ ainda não respondeu em /clientes.');
+        this.erro.set('Não foi possível carregar os clientes.');
         this.carregando.set(false);
       }
     });
@@ -67,7 +67,7 @@ export class Clientes implements OnInit {
         this.carregarClientes();
       },
       error: () => {
-        this.erro.set('Erro ao cadastrar cliente no backend C++.');
+        this.erro.set('Não foi possível cadastrar o cliente.');
       }
     });
   }

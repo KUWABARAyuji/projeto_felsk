@@ -1,8 +1,8 @@
 # Banco de dados TXT - Marido de Aluguel
-# Arquivo de armazenamento local do projeto.
+# Edite com cuidado. Campos usam | e caracteres especiais sao escapados.
 NEXT_CLIENTE_ID=3
 NEXT_TRABALHADOR_ID=3
-NEXT_CONTRATO_ID=1
+NEXT_CONTRATO_ID=2
 
 [CLIENTES]
 1|Ana Lima|47-99001-1111|111.222.333-44|Rua das Flores, 10
@@ -19,3 +19,4 @@ NEXT_CONTRATO_ID=1
 2|Jardineiro|Paisagismo e limpeza externa|50
 
 [CONTRATOS]
+1|1|Ana Lima|1|Carlos Souza|Eletricista|2005-12-21|11|880|trocar lampadas|PENDENTE

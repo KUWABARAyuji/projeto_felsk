@@ -388,12 +388,11 @@ void HttpServer::iniciar(const std::string& host, int port) {
     }
 
     std::cout << "\n==========================================\n";
-    std::cout << " Marido de Aluguel - API C++ sem Crow\n";
-    std::cout << " DDD + DTOs + banco TXT + HTTP nativo\n";
+    std::cout << " Marido de Aluguel - Servidor iniciado\n";
     std::cout << "==========================================\n";
     std::cout << "Servidor: http://localhost:" << port << "\n";
     std::cout << "Health:   http://localhost:" << port << "/health\n";
-    std::cout << "Banco TXT configurado e pronto para o front Angular.\n\n";
+    std::cout << "Armazenamento: data/banco_dados.txt\n\n";
 
     while (true) {
         sockaddr_in clientAddr{};

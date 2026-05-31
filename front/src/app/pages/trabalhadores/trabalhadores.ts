@@ -30,7 +30,7 @@ export class Trabalhadores implements OnInit {
         this.carregando.set(false);
       },
       error: () => {
-        this.erro.set('Backend C++ ainda não respondeu em /trabalhadores.');
+        this.erro.set('Não foi possível carregar os profissionais.');
         this.carregando.set(false);
       }
     });

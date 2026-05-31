@@ -145,7 +145,7 @@ DatabaseState TextDatabase::carregarUnsafe() const {
                                              f[9], domain::model::statusContratoFromString(f[10]));
             }
         } catch (const std::exception&) {
-            // Ignora linha quebrada para nao derrubar o sistema inteiro.
+            // Ignora linha inválida para manter a leitura dos demais registros.
         }
     }
 
@@ -169,7 +169,7 @@ void TextDatabase::salvarUnsafe(const DatabaseState& state) const {
     std::ofstream file(tempPath, std::ios::trunc);
     if (!file.is_open()) throw std::runtime_error("Nao foi possivel salvar o banco TXT.");
 
-    file << "# Banco TXT do sistema Marido de Aluguel\n";
+    file << "# Banco de dados TXT - Marido de Aluguel\n";
     file << "# Edite com cuidado. Campos usam | e caracteres especiais sao escapados.\n";
     file << "NEXT_CLIENTE_ID=" << state.nextClienteId << "\n";
     file << "NEXT_TRABALHADOR_ID=" << state.nextTrabalhadorId << "\n";

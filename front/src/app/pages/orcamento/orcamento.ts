@@ -39,7 +39,7 @@ export class Orcamento implements OnInit {
         this.carregando.set(false);
       },
       error: () => {
-        this.erro.set('Backend C++ ainda não respondeu em /trabalhadores.');
+        this.erro.set('Não foi possível carregar os profissionais.');
         this.carregando.set(false);
       }
     });
@@ -75,10 +75,10 @@ export class Orcamento implements OnInit {
       descricao: this.descricao()
     }).subscribe({
       next: contrato => {
-        this.sucesso.set(`Contrato #${contrato.id} criado com sucesso.`);
+        this.sucesso.set(`Solicitação #${contrato.id} criada com sucesso.`);
       },
       error: () => {
-        this.erro.set('Erro ao enviar contrato para o backend C++.');
+        this.erro.set('Não foi possível criar a solicitação.');
       }
     });
   }
