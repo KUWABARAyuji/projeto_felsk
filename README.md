@@ -43,8 +43,7 @@ A proposta do projeto é organizar, em uma única plataforma, a comunicação en
 - Ninja
 - API HTTP em C++
 - Arquivo `.txt` como armazenamento local
-- Organização em camadas
-- DTOs para entrada e saída de dados
+- Back-end concentrado em um único arquivo `src/main.cpp`
 
 ## Estrutura do projeto
 
@@ -57,22 +56,10 @@ projeto_felsk/
 │   └── tsconfig.json
 │
 ├── back/
-│   ├── include/
-│   │   ├── domain/
-│   │   ├── application/
-│   │   ├── infrastructure/
-│   │   └── presentation/
-│   │
 │   ├── src/
-│   │   ├── domain/
-│   │   ├── application/
-│   │   ├── infrastructure/
-│   │   ├── presentation/
 │   │   └── main.cpp
-│   │
 │   ├── data/
 │   │   └── banco_dados.txt
-│   │
 │   ├── CMakeLists.txt
 │   └── rodar_backend.bat
 │
@@ -81,31 +68,15 @@ projeto_felsk/
 
 ## Organização do back-end
 
-O back-end foi separado em camadas para facilitar manutenção e evolução do projeto.
+O back-end foi deixado em um formato simples, com todo o código C++ concentrado em apenas um arquivo principal:
 
 ```txt
-back/include/domain
+back/src/main.cpp
 ```
 
-Contém as entidades principais do sistema, como Cliente, Trabalhador, Habilidade, Contrato e Data.
+Esse arquivo contém as classes do sistema, as regras de cadastro e contrato, a leitura e escrita do arquivo `.txt` e o servidor HTTP usado pelo front-end.
 
-```txt
-back/include/application
-```
-
-Contém os serviços da aplicação e os DTOs usados para transportar dados entre a API e as regras do sistema.
-
-```txt
-back/include/infrastructure
-```
-
-Contém a implementação do armazenamento em arquivo `.txt`.
-
-```txt
-back/include/presentation
-```
-
-Contém a camada HTTP responsável por receber as requisições do front-end.
+A pasta `include` e as divisões antigas em camadas foram removidas para facilitar a leitura e a apresentação do código em um único arquivo.
 
 ## Banco de dados local
 

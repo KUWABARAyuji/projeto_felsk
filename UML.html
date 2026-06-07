@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UML - Projeto Felsk</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e9edf3;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color: #14213d;
+    }
+
+    .page {
+      padding: 28px;
+    }
+
+    .scroll-area {
+      max-width: 100%;
+      overflow: auto;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid #ccd6e0;
+      box-shadow: 0 18px 44px rgba(20, 33, 61, 0.15);
+    }
+
+    svg {
+      display: block;
+      width: 2400px;
+      height: 1700px;
+    }
+
+    .title {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      fill: #14213d;
+    }
+
+    .subtitle {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      fill: #52616f;
+    }
+
+    .class-box {
+      fill: #fffdf8;
+      stroke: #23476f;
+      stroke-width: 2.5;
+    }
+
+    .shadow {
+      
+    }
+
+    .class-header {
+      fill: #2d5688;
+    }
+
+    .abstract-header {
+      fill: #6f3c94;
+    }
+
+    .enum-header {
+      fill: #1f7a55;
+    }
+
+    .database-header {
+      fill: #a84607;
+    }
+
+    .server-header {
+      fill: #b3347a;
+    }
+
+    .box-title {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      fill: #ffffff;
+    }
+
+    .stereotype {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      font-style: italic;
+      fill: #f4e8ff;
+    }
+
+    .member {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 16px;
+      font-weight: 600;
+      fill: #14213d;
+    }
+
+    .member-muted {
+      fill: #34495e;
+    }
+
+    .separator {
+      stroke: rgba(38, 54, 77, 0.24);
+      stroke-width: 1.3;
+    }
+
+    .relation {
+      stroke: #26364d;
+      stroke-width: 2.7;
+      fill: none;
+    }
+
+    .dependency {
+      stroke-dasharray: 10 8;
+    }
+
+    .relation-label {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      fill: #14213d;
+      paint-order: stroke;
+      stroke: #f7f2e9;
+      stroke-width: 8px;
+      stroke-linejoin: round;
+    }
+
+    .multiplicity {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      fill: #0b63ce;
+      paint-order: stroke;
+      stroke: #f7f2e9;
+      stroke-width: 8px;
+      stroke-linejoin: round;
+    }
+
+    .legend-box {
+      fill: rgba(255, 253, 248, 0.98);
+      stroke: rgba(35, 71, 111, 0.35);
+      stroke-width: 2;
+    }
+
+    .legend-title {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      fill: #14213d;
+    }
+
+    .legend-text {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 650;
+      fill: #14213d;
+    }
+
+    .note {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      fill: #65748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="scroll-area">
+      <svg viewBox="0 0 2400 1700" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama UML de classes do Projeto Felsk">
+        <defs>
+          <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+            <path d="M0,0 L0,8 L11,4 z" fill="#26364d"/>
+          </marker>
+
+          <marker id="triangle" markerWidth="18" markerHeight="18" refX="2" refY="9" orient="auto">
+            <path d="M16,1 L2,9 L16,17 z" fill="#f7f2e9" stroke="#26364d" stroke-width="2.4"/>
+          </marker>
+
+          <marker id="diamond" markerWidth="20" markerHeight="20" refX="2.5" refY="10" orient="auto">
+            <path d="M2,10 L10,2 L18,10 L10,18 z" fill="#f7f2e9" stroke="#26364d" stroke-width="2.4"/>
+          </marker>
+
+          <marker id="filledDiamond" markerWidth="20" markerHeight="20" refX="2.5" refY="10" orient="auto">
+            <path d="M2,10 L10,2 L18,10 L10,18 z" fill="#26364d" stroke="#26364d" stroke-width="2.4"/>
+          </marker>
+        </defs>
+
+        <rect width="2400" height="1700" fill="#f7f2e9"/>
+        <circle cx="145" cy="120" r="360" fill="#6f3c94" opacity="0.06"/>
+        <circle cx="2220" cy="1540" r="420" fill="#2d5688" opacity="0.08"/>
+
+        <text x="1200" y="64" text-anchor="middle" class="title">Diagrama UML de Classes — Projeto Felsk</text>
+        <text x="1200" y="96" text-anchor="middle" class="subtitle">Sistema para contratação e gerenciamento de serviços de marido de aluguel</text>
+
+        <!-- RELACIONAMENTOS -->
+        <path class="relation" d="M430 500 C515 388, 760 355, 955 300" marker-end="url(#triangle)"/>
+        <text x="655" y="372" class="relation-label">herança</text>
+
+        <path class="relation" d="M1915 500 C1790 390, 1450 355, 1225 300" marker-end="url(#triangle)"/>
+        <text x="1605" y="372" class="relation-label">herança</text>
+
+        <path class="relation" d="M885 588 L630 588" marker-start="url(#diamond)" marker-end="url(#arrow)"/>
+        <text x="708" y="568" class="relation-label">gerencia</text>
+        <text x="650" y="610" class="multiplicity">0..*</text>
+
+        <path class="relation" d="M1405 588 L1680 588" marker-start="url(#diamond)" marker-end="url(#arrow)"/>
+        <text x="1478" y="568" class="relation-label">gerencia</text>
+        <text x="1640" y="610" class="multiplicity">0..*</text>
+
+        <path class="relation" d="M1145 830 L1145 970" marker-start="url(#diamond)" marker-end="url(#arrow)"/>
+        <text x="1162" y="905" class="relation-label">gerencia</text>
+        <text x="1162" y="945" class="multiplicity">0..*</text>
+
+        <path class="relation" d="M1915 810 L1915 990" marker-start="url(#filledDiamond)" marker-end="url(#arrow)"/>
+        <text x="1933" y="880" class="relation-label">possui</text>
+        <text x="1933" y="925" class="multiplicity">1..*</text>
+
+        <path class="relation" d="M840 1070 L720 1070 L720 750 L630 750" marker-end="url(#arrow)"/>
+        <text x="735" y="1012" class="relation-label">cliente</text>
+        <text x="650" y="770" class="multiplicity">1</text>
+
+        <path class="relation" d="M1360 1070 L1580 1070 L1580 810 L1680 810" marker-end="url(#arrow)"/>
+        <text x="1400" y="1048" class="relation-label">trabalhador</text>
+        <text x="1648" y="790" class="multiplicity">1</text>
+
+        <path class="relation" d="M840 1190 L620 1190" marker-start="url(#filledDiamond)" marker-end="url(#arrow)"/>
+        <text x="700" y="1168" class="relation-label">data</text>
+        <text x="640" y="1212" class="multiplicity">1</text>
+
+        <path class="relation dependency" d="M1360 1010 L1550 1010 L1550 235 L1680 235" marker-end="url(#arrow)"/>
+        <text x="1450" y="988" class="relation-label">status</text>
+        <text x="1648" y="215" class="multiplicity">1</text>
+
+        <path class="relation dependency" d="M1340 830 L1500 830 L1500 1420" marker-end="url(#arrow)"/>
+        <text x="1518" y="1145" class="relation-label">salva / carrega</text>
+
+        <path class="relation dependency" d="M1800 1330 L1650 1330 L1650 720 L1405 720" marker-end="url(#arrow)"/>
+        <text x="1668" y="1010" class="relation-label">usa</text>
+
+        <!-- LEGENDA -->
+        <g transform="translate(100,130)" class="shadow">
+          <rect class="legend-box" width="430" height="300" rx="18"/>
+          <text x="28" y="44" class="legend-title">Legenda</text>
+
+          <path class="relation" d="M32 78 L132 78" marker-end="url(#triangle)"/>
+          <text x="158" y="84" class="legend-text">Herança</text>
+
+          <path class="relation" d="M32 116 L132 116" marker-start="url(#diamond)" marker-end="url(#arrow)"/>
+          <text x="158" y="122" class="legend-text">Agregação</text>
+
+          <path class="relation" d="M32 154 L132 154" marker-start="url(#filledDiamond)" marker-end="url(#arrow)"/>
+          <text x="158" y="160" class="legend-text">Composição</text>
+
+          <path class="relation" d="M32 192 L132 192" marker-end="url(#arrow)"/>
+          <text x="158" y="198" class="legend-text">Associação direta</text>
+
+          <path class="relation dependency" d="M32 230 L132 230" marker-end="url(#arrow)"/>
+          <text x="158" y="236" class="legend-text">Dependência / uso</text>
+
+          <text x="32" y="274" class="multiplicity" style="stroke-width:0;">1, 0..*, 1..*</text>
+          <text x="158" y="274" class="legend-text">Multiplicidade</text>
+        </g>
+
+        <!-- CLASSES -->
+        <g transform="translate(950,130)" class="shadow">
+          <rect class="class-box" width="430" height="250" rx="18"/>
+          <rect class="abstract-header" width="430" height="68" rx="18"/>
+          <path class="separator" d="M0 68 H430"/>
+          <text x="215" y="27" text-anchor="middle" class="stereotype">«abstract»</text>
+          <text x="215" y="52" text-anchor="middle" class="box-title">Pessoa</text>
+          <text x="26" y="104" class="member member-muted">- id: int</text>
+          <text x="26" y="132" class="member member-muted">- nome: string</text>
+          <text x="26" y="160" class="member member-muted">- telefone: string</text>
+          <text x="26" y="188" class="member member-muted">- cpf: string</text>
+          <path class="separator" d="M0 206 H430"/>
+          <text x="26" y="236" class="member">+ getters principais()</text>
+        </g>
+
+        <g transform="translate(230,500)" class="shadow">
+          <rect class="class-box" width="400" height="250" rx="18"/>
+          <rect class="class-header" width="400" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H400"/>
+          <text x="200" y="40" text-anchor="middle" class="box-title">Cliente</text>
+          <text x="26" y="103" class="member member-muted">- endereco: string</text>
+          <path class="separator" d="M0 135 H400"/>
+          <text x="26" y="172" class="member">+ getEndereco(): string</text>
+          <text x="26" y="200" class="member">+ setEndereco(endereco): void</text>
+          <text x="26" y="228" class="member">+ exibir(): void</text>
+        </g>
+
+        <g transform="translate(885,500)" class="shadow">
+          <rect class="class-box" width="520" height="330" rx="18"/>
+          <rect class="class-header" width="520" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H520"/>
+          <text x="260" y="40" text-anchor="middle" class="box-title">SistemaContratacao</text>
+          <text x="26" y="100" class="member member-muted">- clientes: vector&lt;unique_ptr&lt;Cliente&gt;&gt;</text>
+          <text x="26" y="128" class="member member-muted">- trabalhadores: vector&lt;unique_ptr&lt;Trabalhador&gt;&gt;</text>
+          <text x="26" y="156" class="member member-muted">- contratos: vector&lt;unique_ptr&lt;Contrato&gt;&gt;</text>
+          <text x="26" y="184" class="member member-muted">- idCliente: int</text>
+          <text x="26" y="212" class="member member-muted">- idTrabalhador: int</text>
+          <path class="separator" d="M0 232 H520"/>
+          <text x="26" y="266" class="member">+ cadastrarCliente(...): Cliente*</text>
+          <text x="26" y="294" class="member">+ cadastrarTrabalhador(...): Trabalhador*</text>
+          <text x="26" y="322" class="member">+ criarContrato(...): void</text>
+        </g>
+
+        <g transform="translate(1680,500)" class="shadow">
+          <rect class="class-box" width="470" height="310" rx="18"/>
+          <rect class="class-header" width="470" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H470"/>
+          <text x="235" y="40" text-anchor="middle" class="box-title">Trabalhador</text>
+          <text x="26" y="100" class="member member-muted">- habilidades: vector&lt;Habilidade&gt;</text>
+          <text x="26" y="128" class="member member-muted">- avaliacaoMedia: double</text>
+          <text x="26" y="156" class="member member-muted">- totalAvaliacoes: int</text>
+          <text x="26" y="184" class="member member-muted">- datasOcupadas: vector&lt;Data&gt;</text>
+          <path class="separator" d="M0 205 H470"/>
+          <text x="26" y="240" class="member">+ adicionarHabilidade(h): void</text>
+          <text x="26" y="268" class="member">+ possuiHabilidade(nome): bool</text>
+          <text x="26" y="296" class="member">+ receberAvaliacao(nota): void</text>
+        </g>
+
+        <g transform="translate(1680,130)" class="shadow">
+          <rect class="class-box" width="380" height="210" rx="18"/>
+          <rect class="enum-header" width="380" height="68" rx="18"/>
+          <path class="separator" d="M0 68 H380"/>
+          <text x="190" y="27" text-anchor="middle" class="stereotype">«enumeration»</text>
+          <text x="190" y="52" text-anchor="middle" class="box-title">StatusContrato</text>
+          <text x="36" y="108" class="member">PENDENTE</text>
+          <text x="36" y="136" class="member">CONFIRMADO</text>
+          <text x="36" y="164" class="member">CONCLUIDO</text>
+          <text x="36" y="192" class="member">CANCELADO</text>
+        </g>
+
+        <g transform="translate(840,970)" class="shadow">
+          <rect class="class-box" width="520" height="390" rx="18"/>
+          <rect class="class-header" width="520" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H520"/>
+          <text x="260" y="40" text-anchor="middle" class="box-title">Contrato</text>
+          <text x="26" y="100" class="member member-muted">- proximoId: int {static}</text>
+          <text x="26" y="128" class="member member-muted">- id: int</text>
+          <text x="26" y="156" class="member member-muted">- cliente: Cliente*</text>
+          <text x="26" y="184" class="member member-muted">- trabalhador: Trabalhador*</text>
+          <text x="26" y="212" class="member member-muted">- habilidade: string</text>
+          <text x="26" y="240" class="member member-muted">- data: Data</text>
+          <text x="26" y="268" class="member member-muted">- horas: int</text>
+          <text x="26" y="296" class="member member-muted">- valorTotal: double</text>
+          <text x="26" y="324" class="member member-muted">- status: StatusContrato</text>
+          <path class="separator" d="M0 340 H520"/>
+          <text x="26" y="374" class="member">+ confirmar(), concluir(avaliacao), cancelar()</text>
+        </g>
+
+        <g transform="translate(230,1040)" class="shadow">
+          <rect class="class-box" width="390" height="250" rx="18"/>
+          <rect class="class-header" width="390" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H390"/>
+          <text x="195" y="40" text-anchor="middle" class="box-title">Data</text>
+          <text x="26" y="100" class="member member-muted">- dia: int</text>
+          <text x="26" y="128" class="member member-muted">- mes: int</text>
+          <text x="26" y="156" class="member member-muted">- ano: int</text>
+          <path class="separator" d="M0 178 H390"/>
+          <text x="26" y="214" class="member">+ valida(): bool</text>
+          <text x="26" y="242" class="member">+ toString(): string</text>
+        </g>
+
+        <g transform="translate(1680,990)" class="shadow">
+          <rect class="class-box" width="420" height="250" rx="18"/>
+          <rect class="class-header" width="420" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H420"/>
+          <text x="210" y="40" text-anchor="middle" class="box-title">Habilidade</text>
+          <text x="26" y="100" class="member member-muted">- nome: string</text>
+          <text x="26" y="128" class="member member-muted">- descricao: string</text>
+          <text x="26" y="156" class="member member-muted">- valorHora: double</text>
+          <path class="separator" d="M0 178 H420"/>
+          <text x="26" y="214" class="member">+ getValorHora(): double</text>
+        </g>
+
+        <g transform="translate(1280,1420)" class="shadow">
+          <rect class="class-box" width="440" height="210" rx="18"/>
+          <rect class="database-header" width="440" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H440"/>
+          <text x="220" y="40" text-anchor="middle" class="box-title">BancoDadosTxt</text>
+          <text x="26" y="104" class="member member-muted">- caminhoArquivo: string</text>
+          <path class="separator" d="M0 136 H440"/>
+          <text x="26" y="172" class="member">+ salvarEmArquivo(): void</text>
+          <text x="26" y="200" class="member">+ carregarDoArquivo(): void</text>
+        </g>
+
+        <g transform="translate(1800,1220)" class="shadow">
+          <rect class="class-box" width="430" height="230" rx="18"/>
+          <rect class="server-header" width="430" height="62" rx="18"/>
+          <path class="separator" d="M0 62 H430"/>
+          <text x="215" y="40" text-anchor="middle" class="box-title">ApiServer</text>
+          <text x="26" y="102" class="member member-muted">- sistema: SistemaContratacao</text>
+          <text x="26" y="130" class="member member-muted">- porta: int</text>
+          <path class="separator" d="M0 152 H430"/>
+          <text x="26" y="188" class="member">+ configurarRotas(): void</text>
+          <text x="26" y="216" class="member">+ iniciar(): void</text>
+        </g>
+
+        <text x="80" y="1660" class="note">Diagrama UML geral das principais classes do projeto, com espaçamento ampliado para leitura e apresentação.</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,3 +1,0 @@
-C:/Users/enzo/coding/faculdade/estudos/POO/projeto2/back/build/CMakeFiles/felsk_api.dir
-C:/Users/enzo/coding/faculdade/estudos/POO/projeto2/back/build/CMakeFiles/edit_cache.dir
-C:/Users/enzo/coding/faculdade/estudos/POO/projeto2/back/build/CMakeFiles/rebuild_cache.dir
