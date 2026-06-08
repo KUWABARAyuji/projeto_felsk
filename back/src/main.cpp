@@ -1,12 +1,6 @@
 // ============================================================
-//  SISTEMA MARIDO DE ALUGUEL - BACKEND C++ EM ARQUIVO UNICO
-//  Versao ajustada:
-//    - Classes com atributos private
-//    - Getters e setters
-//    - Sem uso de "std::" no restante do codigo
-//    - Uso de "using namespace std;"
-//    - Banco de dados em arquivo TXT
-//    - Servidor HTTP simples usando sockets
+//  SISTEMA MARIDO DE ALUGUEL - BACKEND C++ 
+//  ALUNO: Enzo Yuji Kuwabara, lucas 
 // ============================================================
 
 #include <algorithm>
